@@ -16,8 +16,8 @@ import model.Note
 
 @Composable
 @Preview
-fun App(appState: AppState): Unit = with(appState) {
-    val notes = state.value.notes;
+fun App(): Unit = with(AppState) {
+    val notes = state.notes;
 
     if (notes == null) {
         LaunchedEffect(true) {
@@ -27,7 +27,7 @@ fun App(appState: AppState): Unit = with(appState) {
 
     MaterialTheme {
         Box(contentAlignment = Alignment.Center, modifier = Modifier.fillMaxSize()) {
-            if(state.value.loading) {
+            if(state.loading) {
                 CircularProgressIndicator()
             }
 
@@ -72,10 +72,9 @@ private fun noteList(notes: List<Note>) {
 }
 
 fun main() {
-    val appState = AppState;
     application {
         Window(onCloseRequest = ::exitApplication) {
-            App(appState);
+            App();
         }
     }
 }
