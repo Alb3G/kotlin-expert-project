@@ -9,6 +9,8 @@ import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -17,21 +19,19 @@ import model.Note
 @Composable
 @Preview
 fun App(): Unit = with(AppState) {
-    val notes = state.notes;
+    val state by state.collectAsState()
 
-    if (notes == null) {
-        LaunchedEffect(true) {
-            loadNotes(this);
-        }
+    LaunchedEffect(true) {
+        loadNotes(this);
     }
 
     MaterialTheme {
-        Box(contentAlignment = Alignment.Center, modifier = Modifier.fillMaxSize()) {
+        Box(modifier = Modifier.fillMaxSize()) {
             if(state.loading) {
-                CircularProgressIndicator()
+                CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
             }
 
-            notes?.let {
+            state.notes?.let {
                 noteList(it)
             }
         }
