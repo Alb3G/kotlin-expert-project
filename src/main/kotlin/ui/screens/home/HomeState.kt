@@ -6,7 +6,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import model.Filter
 import model.Note
-import model.getNotes
+import model.fakeNotes
 
 object HomeState {
     private val _state = MutableStateFlow(UiState())
@@ -15,7 +15,7 @@ object HomeState {
     fun loadNotes(coroutineScope: CoroutineScope) {
         coroutineScope.launch {
             _state.value = UiState(loading = true);
-            getNotes().collect {
+            Note.fakeNotes.collect {
                 _state.value = UiState(notes = it)
             }
         }
