@@ -15,27 +15,22 @@ import androidx.compose.ui.Modifier
 
 @Composable
 @Preview
-fun Home(onCreateClick: () -> Unit): Unit = with(HomeState) {
-    val state: HomeState.UiState by state.collectAsState()
-
-    LaunchedEffect(true) {
-        loadNotes(this);
-    }
+fun Home(vm: HomeViewModel, onCreateClick: () -> Unit) {
 
     MaterialTheme {
         Scaffold(
-            topBar = { TopBar(::onFilterClick) },
+            topBar = { TopBar(vm::onFilterClick) },
             floatingActionButton = { FloatingActionButton(onClick = onCreateClick){
                 Icon(imageVector = Icons.Default.Add, contentDescription = "Add Note")
             } }
         )
         { padding ->
             Box(modifier = Modifier.fillMaxSize().padding(padding)) {
-                if(state.loading) {
+                if(vm.state.loading) {
                     CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
                 }
 
-                state.filteredNotes?.let {
+                vm.state.filteredNotes?.let {
                     noteList(it)
                 }
             }
