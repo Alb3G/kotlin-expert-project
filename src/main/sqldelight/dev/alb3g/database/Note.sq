@@ -1,0 +1,21 @@
+CREATE TABLE DbNote(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title TEXT NOT NULL,
+    description TEXT NOT NULL,
+    type TEXT NOT NULL
+);
+
+insert:
+INSERT INTO DbNote (title, description, type) VALUES (?,?,?);
+
+select:
+SELECT * FROM DbNote;
+
+selectById:
+SELECT * FROM DbNote WHERE id = ?;
+
+update:
+UPDATE DbNote SET title = ?, description = ?, type = ? WHERE id = ?;
+
+delete:
+DELETE FROM DbNote WHERE id = ?;

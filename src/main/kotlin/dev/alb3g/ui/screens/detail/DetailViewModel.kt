@@ -29,7 +29,7 @@ class DetailViewModel(private val scope: CoroutineScope, private val noteId: Lon
     fun save() {
         scope.launch {
             val note = state.note
-            if(note.id != Note.NEW_NOTE) {
+            if(note.id == Note.NEW_NOTE) {
                 NotesRepository.save(note)
             } else {
                 NotesRepository.update(note)

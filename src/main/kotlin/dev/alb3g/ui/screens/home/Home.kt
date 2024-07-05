@@ -10,17 +10,16 @@ import androidx.compose.material.icons.filled.Add
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-
+import model.Note
 
 
 @Composable
 @Preview
-fun Home(vm: HomeViewModel, onCreateClick: () -> Unit) {
-
+fun Home(vm: HomeViewModel, onNoteClick: (noteId: Long) -> Unit) {
     MaterialTheme {
         Scaffold(
             topBar = { TopBar(vm::onFilterClick) },
-            floatingActionButton = { FloatingActionButton(onClick = onCreateClick){
+            floatingActionButton = { FloatingActionButton(onClick = { onNoteClick(Note.NEW_NOTE) }){
                 Icon(imageVector = Icons.Default.Add, contentDescription = "Add Note")
             } }
         )
@@ -30,8 +29,8 @@ fun Home(vm: HomeViewModel, onCreateClick: () -> Unit) {
                     CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
                 }
 
-                vm.state.filteredNotes?.let {
-                    noteList(it)
+                vm.state.filteredNotes?.let { notes ->
+                    NoteList(notes = notes, onNoteClick = { onNoteClick(it.id) })
                 }
             }
         }

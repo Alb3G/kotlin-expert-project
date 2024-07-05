@@ -19,9 +19,9 @@ fun App() {
         when(it) {
             Route.Home -> Home(
                 vm = HomeViewModel(scope),
-                onCreateClick = {route = Route.Detail(-1)}
+                onNoteClick = { noteId -> route = Route.Detail(noteId) }
             )
-            is Route.Detail -> Detail(vm = DetailViewModel(scope, it.id), onClose = {route = Route.Home})
+            is Route.Detail -> Detail(vm = DetailViewModel(scope, it.id), onClose = { route = Route.Home })
         }
     }
 }

@@ -2,6 +2,7 @@ package ui.screens.home
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -21,18 +22,19 @@ import androidx.compose.ui.unit.dp
 import model.Note
 
 @Composable
-fun noteList(notes: List<Note>) {
+fun NoteList(notes: List<Note>, onNoteClick: (Note) -> Unit) {
     LazyColumn(
         modifier = Modifier.fillMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        items(notes) {
-                note -> Card(
-            modifier = Modifier.padding(8.dp)
+        items(notes) { note ->
+            Card(
+                modifier = Modifier.padding(8.dp)
                 .fillMaxWidth(0.8f)
-                .border(BorderStroke(2.dp, Color.Black), shape = RoundedCornerShape(20.dp)),
-            shape = RoundedCornerShape(20.dp)
-        ) {
+                .clickable { onNoteClick(note) }
+                .border(BorderStroke(2.dp, Color.Black)),
+                shape = RoundedCornerShape(20.dp),
+            ) {
             Column(
                 modifier = Modifier.padding(16.dp)
             ) {

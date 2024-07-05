@@ -3,16 +3,10 @@ package ui.screens.home
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
-import io.ktor.client.call.*
-import io.ktor.client.request.*
 import kotlinx.coroutines.*
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.update
 import model.Filter
 import model.Note
 import remote.NotesRepository
-import remote.notesClient
 
 class HomeViewModel(private val scope: CoroutineScope) {
 
