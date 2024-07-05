@@ -1,11 +1,11 @@
-package ui.screens.home
+package dev.alb3g.ui.screens.home
 
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.FilterList
 import androidx.compose.runtime.*
-import model.Filter
-import model.Note
+import dev.alb3g.model.Note
+import dev.alb3g.model.Filter
 
 @Composable
 fun TopBar(onFilterClick: (Filter) -> Unit) {

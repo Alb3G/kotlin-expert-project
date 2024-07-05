@@ -1,4 +1,4 @@
-package ui.screens.home
+package dev.alb3g.ui.screens.home
 
 import androidx.compose.desktop.ui.tooling.preview.Preview
 import androidx.compose.foundation.layout.Box
@@ -10,8 +10,7 @@ import androidx.compose.material.icons.filled.Add
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import model.Note
-
+import dev.alb3g.model.Note
 
 @Composable
 @Preview

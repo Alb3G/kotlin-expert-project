@@ -1,10 +1,10 @@
-package ui
+package dev.alb3g.ui
 
 import androidx.compose.runtime.*
-import ui.screens.detail.Detail
-import ui.screens.detail.DetailViewModel
-import ui.screens.home.Home;
-import ui.screens.home.HomeViewModel
+import dev.alb3g.ui.screens.detail.Detail
+import dev.alb3g.ui.screens.detail.DetailViewModel
+import dev.alb3g.ui.screens.home.Home;
+import dev.alb3g.ui.screens.home.HomeViewModel
 
 sealed interface Route {
     data object Home: Route

@@ -1,4 +1,4 @@
-package model
+package dev.alb3g.model
 
 import kotlinx.serialization.Serializable
 

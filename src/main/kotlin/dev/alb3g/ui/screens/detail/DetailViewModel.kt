@@ -1,12 +1,12 @@
-package ui.screens.detail
+package dev.alb3g.ui.screens.detail
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
-import model.Note
-import remote.NotesRepository
+import dev.alb3g.model.Note
+import dev.alb3g.remote.NotesRepository
 
 
 class DetailViewModel(private val scope: CoroutineScope, private val noteId: Long) {

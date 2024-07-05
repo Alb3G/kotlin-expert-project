@@ -1,13 +1,21 @@
-package remote
+package dev.alb3g.remote
 
+import com.squareup.sqldelight.sqlite.driver.JdbcSqliteDriver
+import dev.alb3g.database.AppDatabase
+import dev.alb3g.model.Note
 import io.ktor.client.call.*
 import io.ktor.client.request.*
 import io.ktor.http.*
-import model.Note
+
 
 private const val NOTES_URL = "http://localhost:8080/notes"
 
 object NotesRepository {
+    private val notesDb = JdbcSqliteDriver(JdbcSqliteDriver.IN_MEMORY).let {
+        AppDatabase.Schema.create(it)
+        AppDatabase(it)
+    }
+
     suspend fun getAll(): List<Note> {
         val response = notesClient.request(NOTES_URL)
         return response.body()

@@ -1,4 +1,4 @@
-package extensions
+package dev.alb3g.extensions
 
 import androidx.compose.runtime.MutableState
 

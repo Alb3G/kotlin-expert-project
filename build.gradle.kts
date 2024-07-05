@@ -6,10 +6,17 @@ plugins {
     kotlin("jvm")
     kotlin("plugin.serialization") version "1.8.0"
     id("org.jetbrains.compose")
+    id("com.squareup.sqldelight") version "1.5.4"
 }
 
 group = "org.notesExpert"
 version = "1.0-SNAPSHOT"
+
+sqldelight {
+    database("AppDatabase") {
+        packageName = "dev.alb3g.database"
+    }
+}
 
 repositories {
     mavenCentral()
@@ -27,6 +34,7 @@ dependencies {
     implementation("io.ktor:ktor-client-okhttp-jvm:2.3.12")
     implementation("io.ktor:ktor-client-content-negotiation:$ktor_version")
     implementation("io.ktor:ktor-serialization-kotlinx-json:$ktor_version")
+    implementation("com.squareup.sqldelight:sqlite-driver:1.5.4")
 
     implementation("ch.qos.logback:logback-classic:1.5.6")
 }

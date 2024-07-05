@@ -1,12 +1,12 @@
-package ui.screens.home
+package dev.alb3g.ui.screens.home
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import kotlinx.coroutines.*
-import model.Filter
-import model.Note
-import remote.NotesRepository
+import dev.alb3g.model.Note
+import dev.alb3g.model.Filter
+import dev.alb3g.remote.NotesRepository
 
 class HomeViewModel(private val scope: CoroutineScope) {
 

@@ -1,4 +1,4 @@
-package remote
+package dev.alb3g.remote
 
 import io.ktor.client.*
 import io.ktor.client.engine.okhttp.*

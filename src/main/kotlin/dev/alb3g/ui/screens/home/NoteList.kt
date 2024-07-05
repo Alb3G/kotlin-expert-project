@@ -1,4 +1,4 @@
-package ui.screens.home
+package dev.alb3g.ui.screens.home
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.border
@@ -19,7 +19,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import model.Note
+import dev.alb3g.model.Note
 
 @Composable
 fun NoteList(notes: List<Note>, onNoteClick: (Note) -> Unit) {

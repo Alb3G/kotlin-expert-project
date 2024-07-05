@@ -1,6 +1,6 @@
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
-import ui.App
+import dev.alb3g.ui.App
 
 fun main() {
     application {

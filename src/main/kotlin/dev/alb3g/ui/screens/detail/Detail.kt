@@ -1,4 +1,4 @@
-package ui.screens.detail
+package dev.alb3g.ui.screens.detail
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
@@ -7,7 +7,7 @@ import androidx.compose.material.icons.filled.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import model.Note
+import dev.alb3g.model.Note
 
 @Composable
 fun Detail(vm: DetailViewModel, onClose: () -> Unit) {
