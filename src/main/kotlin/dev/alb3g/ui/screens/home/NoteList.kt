@@ -6,7 +6,6 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
 import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
@@ -33,7 +32,6 @@ fun NoteList(notes: List<Note>, onNoteClick: (Note) -> Unit) {
                 .fillMaxWidth(0.8f)
                 .clickable { onNoteClick(note) }
                 .border(BorderStroke(2.dp, Color.Black)),
-                shape = RoundedCornerShape(20.dp),
             ) {
             Column(
                 modifier = Modifier.padding(16.dp)
