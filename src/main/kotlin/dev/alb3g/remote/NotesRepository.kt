@@ -16,10 +16,7 @@ object NotesRepository {
         AppDatabase(it)
     }
 
-    suspend fun getAll(): List<Note> {
-        val response = notesClient.request(NOTES_URL)
-        return response.body()
-    }
+    suspend fun getAll(): List<Note> = notesClient.request(NOTES_URL).body()
 
     suspend fun getById(id: Long): Note {
         val response = notesClient.request("$NOTES_URL/$id")
