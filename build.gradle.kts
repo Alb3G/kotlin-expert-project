@@ -4,7 +4,7 @@ val ktor_version: String by project
 
 plugins {
     kotlin("jvm")
-    kotlin("plugin.serialization") version "1.8.0"
+    kotlin("plugin.serialization")
     id("org.jetbrains.compose")
 }
 
